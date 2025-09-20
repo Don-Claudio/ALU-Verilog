@@ -1,0 +1,8 @@
+# ModelSim and simulation artifacts
+sim/*
+*.wlf
+work/
+transcript
+vsim.wlf
+*.vcd
+*.vpd
