@@ -18,10 +18,12 @@ module alu_tb;
   );
 
   integer i;
+  integer seed;
   initial begin
+    seed = 32'hDEADBEEF;
     repeat (5) begin
-      a = $urandom;   // Verilog system task: gives a 32-bit random value
-      b = $urandom;
+      a = $urandom(seed);   // Verilog system task: gives a 32-bit random value that is repeatable
+      b = $urandom(seed);
       for (i = 0; i < 8; i = i + 1) begin
         sel = i[2:0]; // still cycles through all ALU operations
         #10;
