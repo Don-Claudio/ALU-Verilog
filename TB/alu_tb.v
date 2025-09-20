@@ -17,12 +17,19 @@ module alu_tb;
     .out(out)
   );
 
+  integer i;
   initial begin
-    // basic sanity test
-    a = 8'd10; b = 8'd5; sel = 3'b001; // add
-    #10;
-    $display("Time=%0t out=%0d", $time, out);
-    $finish;
+    repeat (5) begin
+      a = $urandom;   // Verilog system task: gives a 32-bit random value
+      b = $urandom;
+      for (i = 0; i < 8; i = i + 1) begin
+        sel = i[2:0]; // still cycles through all ALU operations
+        #10;
+        $display("T=%0t a=%0d b=%0d sel=%0b out=%0d",$time, a, b, sel, out);
+        $finish;
+      end
+    end
+
   end
 endmodule
 
