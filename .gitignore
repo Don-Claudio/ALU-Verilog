@@ -1,5 +1,6 @@
 # ModelSim and simulation artifacts
 sim/*
+!/sim/README.md
 *.wlf
 work/
 transcript
