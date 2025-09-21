@@ -28,12 +28,11 @@ module alu_tb;
         sel = i[2:0]; // still cycles through all ALU operations
         #10;
         $display("T=%0t a=%0d b=%0d sel=%0b out=%0d",$time, a, b, sel, out);
-      
+        $finish;
       end
     end
-  $finish;
+
   end
 endmodule
 
 `default_nettype wire
-

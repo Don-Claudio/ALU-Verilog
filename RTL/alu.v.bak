@@ -27,4 +27,3 @@ module alu #(
 endmodule
 
 `default_nettype wire
-
