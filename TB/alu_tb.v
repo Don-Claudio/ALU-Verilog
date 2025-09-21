@@ -21,9 +21,10 @@ module alu_tb;
   integer seed;
   initial begin
     seed = 32'hDEADBEEF;
+    $urandom(seed); // Initialize the random number generator with a seed value
     repeat (5) begin
-      a = $urandom(seed);   // Verilog system task: gives a 32-bit random value that is repeatable
-      b = $urandom(seed);
+      a = $urandom;   // Verilog system task: gives a 32-bit random value that is repeatable
+      b = $urandom;
       for (i = 0; i < 8; i = i + 1) begin
         sel = i[2:0]; // still cycles through all ALU operations
         #10;
